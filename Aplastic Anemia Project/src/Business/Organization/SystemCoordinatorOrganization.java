@@ -5,6 +5,7 @@
 package Business.Organization;
 
 import java.util.ArrayList;
+import javax.management.relation.Role;
 
 /**
  *
@@ -20,5 +21,6 @@ public class SystemCoordinatorOrganization extends Organization {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new SystemCoordinatorRole());
         return roles;
+    }
     
 }
