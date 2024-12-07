@@ -4,10 +4,22 @@
  */
 package Business.Organization;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author saiteja
  */
-public class MedicalTechnicianOrganization {
+public class MedicalTechnicianOrganization extends Organization{
+        public MedicalTechnicianOrganization() {
+        super(Organization.Type.MedicalTechnician.getValue());
+    }
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new MedicalTechnicianRole());
+        return roles;
+    }
     
 }
