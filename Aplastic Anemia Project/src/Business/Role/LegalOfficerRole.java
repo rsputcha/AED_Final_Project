@@ -4,10 +4,22 @@
  */
 package Business.Role;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.LegalOfficerOrganization;
+import Business.Organization.Organization;
+import javax.swing.JPanel;
+
 /**
  *
  * @author deepakreddy
  */
 public class LegalOfficerRole {
+    
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new LegalOfficerWorkAreaJPanel(account, (LegalOfficerOrganization) organization, enterprise, business, network);
+    }
     
 }
