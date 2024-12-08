@@ -4,6 +4,16 @@
  */
 package ui.DoctorRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.DoctorOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author saiteja
@@ -13,8 +23,61 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDoctorRequestJPanel
      */
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private DoctorOrganization doctorOrganization;
+    private Enterprise enterprise;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
     public ManageDoctorRequestJPanel() {
         initComponents();
+        this.system = system;
+        this.userAccount = userAccount;
+        this.doctorOrganization = doctorOrganization;
+        this.enterprise = enterprise;
+        
+    
+        tblDoctorOrganisation.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        tblDoctor.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        populateOrganisationpatientTable();
+        populateDoctorPatientTable();
+    }
+    
+    public void populateOrganisationpatientTable(){
+        DefaultTableModel model = (DefaultTableModel)tblDoctorOrganisation.getModel();
+        
+        model.setRowCount(0);
+        
+        for(WorkRequest request : doctorOrganization.getWorkQueue().getWorkRequestList()){
+            Object[] row = new Object[5];
+            row[0] = request;
+            row[1] = request.getSummary();
+            row[2] = request.getPatient();
+            row[3] = request.getPatient().getName();
+          //  row[4] = request.getPatient().getContact();
+            row[4] = request.getStatus();
+            
+            model.addRow(row);
+        }
+    }
+
+    
+    public void populateDoctorPatientTable(){
+        DefaultTableModel model = (DefaultTableModel)tblDoctor.getModel();
+        
+        model.setRowCount(0);
+        
+        for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+            Object[] row = new Object[5];
+            row[0] = request;
+            row[1] = request.getPatient();
+            row[2] = request.getPatient().getName();
+        //    row[3] = request.getPatient().getContact();
+            row[3] = request.getUserAccount().getUsername();
+            row[4] = request.getStatus();
+             
+            model.addRow(row);
+        }
     }
 
     /**
