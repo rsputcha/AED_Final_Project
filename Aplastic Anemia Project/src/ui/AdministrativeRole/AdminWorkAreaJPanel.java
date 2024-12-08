@@ -8,7 +8,9 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import java.awt.CardLayout;
+import java.awt.Color;
 import static java.time.Clock.system;
+import javax.swing.JPanel;
 
 /**
  *
@@ -30,6 +32,23 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         System.out.println("I'm here where u thought!!");
         this.enterprise = enterprise;
         this.system = system;
+    }
+    
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);    
+    }
+    
+    public void clickmenu(JPanel h1, JPanel h2, int numberbool){
+        
+        if(numberbool == 1){
+            
+            h1.setBackground(new Color(70,55,37));
+            h2.setBackground(new Color(216,99,1));        
+        }
+        else{
+            h1.setBackground(new Color(216,99,1));
+            h2.setBackground(new Color(70,55,37));   
+        }  
     }
 
     /**

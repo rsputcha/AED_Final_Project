@@ -4,6 +4,11 @@
  */
 package ui.DoctorRole;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.DoctorOrganization;
+import Business.UserAccount.UserAccount;
+import java.util.Date;
+
 /**
  *
  * @author saiteja
@@ -13,8 +18,31 @@ public class ManageDoctorProfile extends javax.swing.JPanel {
     /**
      * Creates new form ManageDoctorProfile
      */
-    public ManageDoctorProfile() {
+    
+    private UserAccount userAccount;
+    private Enterprise enterprise ;
+    private DoctorOrganization doctorOrganization;
+     
+    public ManageDoctorProfile(UserAccount userAccount, DoctorOrganization doctorOrganization, Enterprise enterprise) {
         initComponents();
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.doctorOrganization = doctorOrganization;
+        populateFields();
+    }
+    
+    private void populateFields(){
+        
+        comboGender.removeAllItems();
+        comboGender.addItem("Male");
+        comboGender.addItem("Female");
+        txtAddress.setText(userAccount.getEmployee().getAddress());
+        txtCity.setText(userAccount.getEmployee().getCity());
+        txtContact.setText(String.valueOf(userAccount.getEmployee().getContactNumber()));
+        txtDOB.setText(String.valueOf(userAccount.getEmployee().getDateOfBirth()));
+        txtName.setText(userAccount.getEmployee().getName());
+        txtSpecialization.setText(userAccount.getEmployee().getSpecialization());
+        txtState.setText(userAccount.getEmployee().getState());   
     }
 
     /**

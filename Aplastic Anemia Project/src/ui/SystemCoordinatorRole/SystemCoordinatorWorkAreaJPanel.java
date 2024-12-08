@@ -4,6 +4,7 @@
  */
 package ui.SystemCoordinatorRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -32,8 +33,7 @@ public class SystemCoordinatorWorkAreaJPanel extends javax.swing.JPanel {
     private Network network;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public SystemCoordinatorWorkAreaJPanel() {
-        initComponents();
+    public SystemCoordinatorWorkAreaJPanel(UserAccount account, SystemCoordinatorOrganization systorganization, Enterprise enterprise, EcoSystem business, Network network) {
         initComponents();
         this.userAccount = account;
         this.systorganization = systorganization;

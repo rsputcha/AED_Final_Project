@@ -9,7 +9,9 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.GovernmentOrganization;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.GovernmentCoordinatorRole.GovernmentCoordinatorWorkAreaJPanel;
 
 /**
  *
@@ -17,7 +19,7 @@ import javax.swing.JPanel;
  */
 public class GovernmentCoordinatorRole {
     
-       @Override
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
         return new GovernmentCoordinatorWorkAreaJPanel(account, (GovernmentOrganization) organization, enterprise, business, network);
     }

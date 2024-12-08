@@ -11,6 +11,8 @@ import static Business.Enterprise.Enterprise.EnterpriseType.BoneMarrowBank;
 import static Business.Enterprise.Enterprise.EnterpriseType.HRSA;
 import static Business.Enterprise.Enterprise.EnterpriseType.Legal;
 import Business.Organization.Organization;
+import Business.Organization.Organization.BloodCancerCentreType;
+import Business.Organization.Organization.BoneMarrowBankType;
 import Business.Organization.Organization.GovernmentType;
 import Business.Organization.Organization.LegalType;
 import Business.Organization.Organization.Type;
@@ -21,6 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+
 
 
 
