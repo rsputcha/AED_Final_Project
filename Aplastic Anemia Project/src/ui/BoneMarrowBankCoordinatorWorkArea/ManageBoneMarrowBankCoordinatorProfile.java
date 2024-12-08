@@ -4,6 +4,11 @@
  */
 package ui.BoneMarrowBankCoordinatorWorkArea;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.Bone_Marrow_Bank_Organization;
+import Business.UserAccount.UserAccount;
+import java.util.Date;
+
 /**
  *
  * @author saiteja
@@ -13,8 +18,30 @@ public class ManageBoneMarrowBankCoordinatorProfile extends javax.swing.JPanel {
     /**
      * Creates new form ManageBoneMarrowBankCoordinatorProfile
      */
-    public ManageBoneMarrowBankCoordinatorProfile() {
+    private UserAccount userAccount;
+    private Enterprise enterprise ;
+    private Bone_Marrow_Bank_Organization bmBankOrganization;
+    
+    public ManageBoneMarrowBankCoordinatorProfile(UserAccount userAccount, Bone_Marrow_Bank_Organization bmBankOrganization, Enterprise enterprise) {
         initComponents();
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.bmBankOrganization = bmBankOrganization;
+        populateFields();
+    }
+    
+    private void populateFields(){
+        
+        comboGender.removeAllItems();
+        comboGender.addItem("Male");
+        comboGender.addItem("Female");
+        txtAddress.setText(userAccount.getEmployee().getAddress());
+        txtCity.setText(userAccount.getEmployee().getCity());
+        txtContact.setText(String.valueOf(userAccount.getEmployee().getContactNumber()));
+        txtDOB.setText(String.valueOf(userAccount.getEmployee().getDateOfBirth()));
+        txtName.setText(userAccount.getEmployee().getName());
+        txtSpecialization.setText(userAccount.getEmployee().getSpecialization());
+        txtState.setText(userAccount.getEmployee().getState());
     }
 
     /**
