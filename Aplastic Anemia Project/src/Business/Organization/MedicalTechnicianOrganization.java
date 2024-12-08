@@ -4,6 +4,8 @@
  */
 package Business.Organization;
 
+import Business.Role.MedicalTechnicianRole;
+import Business.Role.Role;
 import java.util.ArrayList;
 
 /**

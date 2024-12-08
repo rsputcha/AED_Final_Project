@@ -6,13 +6,16 @@ package Business.Organization;
 
 import Business.Employee.EmployeeDirectory;
 import Business.HLA.PersonHLA;
+import Business.Role.Role;
+import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
  *
  * @author saiteja
  */
-public class Organization {
+public abstract class Organization {
     private int organizationID;
     private String name;
     private String realName;

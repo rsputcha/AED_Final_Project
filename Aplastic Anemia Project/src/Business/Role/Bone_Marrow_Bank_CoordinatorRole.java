@@ -9,10 +9,12 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Bone_Marrow_Bank_Organization;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
 import javax.swing.JPanel;
-import userinterface.Bone_Marrow_Bank_CoordinatorRole.BoneMarrowBankCoordinatorWorkAreaJPanel;
+import ui.BoneMarrowBankCoordinatorWorkArea.BoneMarrowBankCoordinatorWorkAreaJPanel;
+
 
 /**
  *

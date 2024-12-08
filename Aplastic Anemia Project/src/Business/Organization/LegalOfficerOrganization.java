@@ -5,6 +5,8 @@
 package Business.Organization;
 
 import java.util.ArrayList;
+import Business.Role.LegalOfficerRole;
+import Business.Role.Role;
 
 /**
  *
