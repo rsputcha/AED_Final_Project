@@ -26,8 +26,72 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageEmployeeJPanel
      */
-    public ManageEmployeeJPanel() {
+    private OrganizationDirectory organizationDir;
+    private JPanel userProcessContainer;
+    
+    EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
+    public ManageEmployeeJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir, Enterprise enterprise, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organizationDir = organizationDir;
+        this.system = system;
+        
+        organizationJTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        populateOrganizationComboBox();
+        //populateOrganizationEmpComboBox();
+        //populateTable();
+        enterpriseNameTextField1.setText(enterprise.getName());
+    }
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
+
+        model.setRowCount(0);
+        for (Organization o : organizationDir.getOrganizationList()) {
+            for (Employee employee : o.getEmployeeDirectory().getEmployeeList()) {
+                Object[] row = new Object[3];
+                row[0] = o;
+                row[1] = o.getRealName();
+                row[2] = employee.getName();
+                model.addRow(row);
+            }
+
+        }
+
+    }
+    public void populateOrganizationComboBox(){
+        organizationJComboBox.removeAllItems();
+        
+        for (Organization organization : organizationDir.getOrganizationList()){
+            organizationJComboBox.addItem(organization);
+            
+            
+            
+        }
+    }
+    
+    public void populateOrganizationEmpComboBox(){
+        organizationEmpJComboBox.removeAllItems();
+        
+        for (Organization organization : organizationDir.getOrganizationList()){
+            organizationEmpJComboBox.addItem(organization.getRealName());
+        }
+    }
+
+    private void populateTable(Organization organization){
+        DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
+        
+        model.setRowCount(0);
+        
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
+            Object[] row = new Object[3];
+            row[0] = organization;
+            row[1] = organization.getRealName();
+            row[2] = employee;
+            model.addRow(row);
+        }
     }
 
     /**

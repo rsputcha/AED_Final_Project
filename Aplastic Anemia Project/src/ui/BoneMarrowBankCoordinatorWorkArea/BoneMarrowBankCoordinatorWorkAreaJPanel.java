@@ -4,6 +4,15 @@
  */
 package ui.BoneMarrowBankCoordinatorWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Bone_Marrow_Bank_Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author saiteja
@@ -13,8 +22,38 @@ public class BoneMarrowBankCoordinatorWorkAreaJPanel extends javax.swing.JPanel 
     /**
      * Creates new form BoneMarrowBankCoordinatorWorkAreaJPanel
      */
-    public BoneMarrowBankCoordinatorWorkAreaJPanel() {
+    boolean a = true;
+    private UserAccount userAccount;
+    private Bone_Marrow_Bank_Organization bmBankOrganization;
+    private Enterprise enterprise;
+    private EcoSystem system;
+    private Network network;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
+    public BoneMarrowBankCoordinatorWorkAreaJPanel(UserAccount account, Bone_Marrow_Bank_Organization bmBankOrganization, Enterprise enterprise, EcoSystem business, Network network) {
         initComponents();
+        this.userAccount = account;
+        this.bmBankOrganization = bmBankOrganization;
+        this.enterprise = enterprise;
+        this.system = business;
+        this.network = network;
+    }
+    
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);    
+    }
+    
+    public void clickmenu(JPanel h1, JPanel h2, int numberbool){
+        
+        if(numberbool == 1){
+            
+            h1.setBackground(new Color(70,55,37));
+            h2.setBackground(new Color(216,99,1));        
+        }
+        else{
+            h1.setBackground(new Color(216,99,1));
+            h2.setBackground(new Color(70,55,37));   
+        }  
     }
 
     /**

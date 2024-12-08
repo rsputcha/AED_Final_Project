@@ -4,6 +4,16 @@
  */
 package ui.BoneMarrowBankCoordinatorWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Bone_Marrow_Bank_Organization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author saiteja
@@ -13,8 +23,63 @@ public class BoneMarrowRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form BoneMarrowRequestJPanel
      */
-    public BoneMarrowRequestJPanel() {
+    private UserAccount userAccount;
+    private Bone_Marrow_Bank_Organization marroworganization;
+    private Enterprise enterprise;
+    private Network network;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private EcoSystem system;
+    
+    public BoneMarrowRequestJPanel(UserAccount userAccount, Bone_Marrow_Bank_Organization bmBankOrganization, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.marroworganization = bmBankOrganization;
+        this.enterprise = enterprise;
+        this.network = network;
+        this.system = system;
+         
+        tblBoneMarrowCoordinator.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        tblHlaAvailability.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        
+        
+        populateBoneMarrowCoordinatorTable();
+        populateHlaAvailabilityTable();
+    }
+    
+    public void populateBoneMarrowCoordinatorTable(){
+        DefaultTableModel model = (DefaultTableModel)tblBoneMarrowCoordinator.getModel();
+        
+        model.setRowCount(0);
+        
+        for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+            Object[] row = new Object[6];
+            row[0] = request;
+            row[1] = request.getPatient();
+            row[2] = request.getPatient().getName();
+            row[3] = request.getPatient().getEmailID();
+            row[4] = String.join(", ",request.getPatient().getHLA().getHlaValuesList());
+            row[5] = request.getStatus();
+             
+            model.addRow(row);
+        }
+    }
+    
+    private void populateHlaAvailabilityTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblHlaAvailability.getModel();
+        dtm.setRowCount(0);
+//        marroworganization.getInventory().HLACountAdd(new PersonHLA().updateHLAlist("HLA_A,HLA_B"),6);
+//        marroworganization.getInventory().HLACountAdd(new PersonHLA().updateHLAlist("HLA_A"),5);
+//        marroworganization.getInventory().HLACountAdd(new PersonHLA().updateHLAlist("HLA_A,HLA_B,HLA_C"),7);
+//        dB4OUtil.storeSystem(system);
+        for(Map.Entry<String, Integer> hlaCount : marroworganization.getInventoryData().entrySet()) {
+            
+            Object row[] = new Object[2];
+            row[0]= hlaCount.getKey().toString();
+            row[1]=hlaCount.getValue();
+              
+            dtm.addRow(row);
+            
+        }
     }
 
     /**

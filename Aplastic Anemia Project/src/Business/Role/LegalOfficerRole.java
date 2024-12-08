@@ -9,7 +9,11 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.LegalOfficerOrganization;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+
 import javax.swing.JPanel;
+import ui.LegalOfficerRole.LegalOfficerWorkAreaJPanel;
+
 
 /**
  *

@@ -38,4 +38,57 @@ public class PersonHLA {
             return value;
         }
     
+    }
+    
+    public ArrayList<HLAType> getHlaList() {
+        return hlaList;
+    }
+    
+    public ArrayList<String> getHlaValuesList() {
+        ArrayList<String> hlaValuesList = new ArrayList<String>();
+        for(HLAType h : this.hlaList) {
+            hlaValuesList.add(h.getValue());
+        }
+        
+        return hlaValuesList;
+    }
+    
+    public void setHlaList(ArrayList<HLAType> hlaList) {
+        this.hlaList = hlaList;
+    }
+    
+    public void addHLA(HLAType hlaType) {
+        
+        for(HLAType t : this.getHlaList()) {
+            if(t.getValue().equals(hlaType.getValue())) {
+                System.out.println("HLAType already in patient's HLA List");
+                return;
+            }
+        }
+        
+        this.getHlaList().add(hlaType);
+    }
+    
+    public void updateHLAlist(String hlaList) {
+        this.hlaList = new ArrayList<HLAType>();
+        try {
+            for(String hlaType: hlaList.split(",")) {
+                this.hlaList.add(HLAType.valueOf(hlaType.trim()));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+            this.hlaList.add(HLAType.valueOf(hlaList));
+        }
+    }
+    
+    public void removeHLA(HLAType hlaType) {
+        this.getHlaList().remove(hlaType);
+    }
+    
+    public static PersonHLA createHLA(String hlaList) {
+        PersonHLA pHLA = new PersonHLA();
+        pHLA.updateHLAlist(hlaList);
+        return pHLA;
+    }
 }

@@ -4,6 +4,11 @@
  */
 package Business.Enterprise;
 
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author saiteja
@@ -18,6 +23,11 @@ public class Enterprise extends Organization {
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public enum EnterpriseType{

@@ -13,6 +13,7 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JFrame;
 /*import userinterface.AdministrativeRole.AdminWorkAreaJPanel;*/
 import javax.swing.JPanel;
+import ui.AdministrativeRole.AdminWorkAreaJPanel;
 
 /**
  *

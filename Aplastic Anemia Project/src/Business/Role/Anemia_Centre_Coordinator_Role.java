@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.Anemia_Centre_Organization;
 import Business.Organization.Organization;
 import javax.swing.JPanel;
+import ui.Anemia_Centre_Coordinator_Role.Anemia_Centre_Coordinator_WorkAreaJPanel;
 
 /**
  *

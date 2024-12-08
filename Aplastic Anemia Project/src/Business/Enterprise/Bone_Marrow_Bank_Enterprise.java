@@ -4,6 +4,7 @@
  */
 package Business.Enterprise;
 
+import Business.Enterprise.Enterprise.EnterpriseType;
 import java.util.ArrayList;
 import javax.management.relation.Role;
 

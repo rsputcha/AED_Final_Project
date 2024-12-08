@@ -4,6 +4,16 @@
  */
 package ui.DoctorRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.DoctorOrganization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author saiteja
@@ -13,8 +23,36 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public DoctorWorkAreaJPanel() {
+    private UserAccount userAccount;
+    boolean a = true;
+    DoctorOrganization doctorOrganization;
+    Enterprise enterprise;
+    EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
+    public DoctorWorkAreaJPanel(UserAccount account, DoctorOrganization doctorOrganization, Enterprise enterprise, EcoSystem system, Network network) {
         initComponents();
+        this.system = system;
+        this.userAccount = account;
+        this.doctorOrganization = doctorOrganization;
+        this.enterprise = enterprise;
+    }
+    
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);    
+    }
+    
+    public void clickmenu(JPanel h1, JPanel h2, int numberbool){
+        
+        if(numberbool == 1){
+            
+            h1.setBackground(new Color(70,55,37));
+            h2.setBackground(new Color(216,99,1));        
+        }
+        else{
+            h1.setBackground(new Color(216,99,1));
+            h2.setBackground(new Color(70,55,37));   
+        }  
     }
 
     /**
