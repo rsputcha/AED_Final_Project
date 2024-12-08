@@ -4,18 +4,124 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Magic.Design.*;
+import Magic.Design.MyJLabel;
+import Business.People.PatientRequestDirectory;
+import Business.People.PatientRequest;
+import Magic.Design.MyJButton;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import static javax.swing.SwingUtilities.getWindowAncestor;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import ui.GovernmentCoordinatorRole.NewDonorJPanel;
+import static ui.GovernmentCoordinatorRole.NewDonorJPanel.emailValidator;
+
 /**
  *
  * @author deepakreddy
  */
 public class NewReceiverJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewReceiverJPanel
-     */
-    public NewReceiverJPanel() {
+   private EcoSystem system;
+    private byte[] tempdP;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private boolean emailValid;
+    private int yesno;
+    private ButtonGroup radioGroup1;
+    
+    public NewReceiverJPanel(EcoSystem system) {
         initComponents();
+        this.system = system;
+        this.radioGroup1 = new ButtonGroup();
+       // ButtonGroup radioGroup1 = new ButtonGroup();
+        radioGroup1.add(buttonYes);
+        radioGroup1.add(buttonNo);
+        
+        populateGenderComboBox();
+        populateStateComboBox();        
     }
+    private void populateGenderComboBox(){
+      genderJComboBox.addItem("Male");
+      genderJComboBox.addItem("Female");
+      genderJComboBox.addItem("Other");
+        }
+  
+     private void populateStateComboBox(){
+      stateJComboBox.addItem("California");
+      stateJComboBox.addItem("Massachusetts");
+      stateJComboBox.addItem("Georgia");
+      stateJComboBox.addItem("Arizona");
+      stateJComboBox.addItem("Texas");
+      stateJComboBox.addItem("Florida");
+      stateJComboBox.addItem("Illinois");
+      }
+      public static boolean phoneNumberValidator(String contact) {
+        Pattern pattern;
+        Matcher matcher;
+        String PHONE_PATTERN = "^[0-9]{10}$";
+        pattern = Pattern.compile(PHONE_PATTERN);
+        matcher = pattern.matcher(contact);
+        return matcher.matches();
+        }
+    public static boolean zipCodeValidator(String zip) {
+        Pattern pattern;
+        Matcher matcher;
+        String zip_pattern = "^[0-9]{5}$";
+        pattern = Pattern.compile(zip_pattern);
+        matcher = pattern.matcher(zip);
+        return matcher.matches();
+        } 
+    public static boolean emailValidator(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+        }
+    private void disableAllButton(){
+    
+        uidText.setEnabled(false);
+        nameText.setEnabled(false);
+        dobDateField.setEnabled(false);
+        ageText.setEnabled(false);
+        emailText.setEnabled(false);
+        contactText.setEnabled(false);
+        genderJComboBox.setEnabled(false);
+        hlaTypesText.setEnabled(false);
+        diagnosedDateChooser.setEnabled(false);
+        streetText.setEnabled(false);
+        cityText.setEnabled(false);
+        stateJComboBox.setEnabled(false);
+        zipText.setEnabled(false);
+        buttonYes.setEnabled(false);
+        buttonNo.setEnabled(false);
+        btnAddPhoto.setEnabled(false);
+    }
+      public boolean isAlpha(String name) {
+        return name.matches("[a-zA-Z]+");
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,13 +157,11 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         btnAddPhoto = new javax.swing.JButton();
         buttonYes = new javax.swing.JRadioButton();
         buttonNo = new javax.swing.JRadioButton();
-        dobDateField = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         stateJComboBox = new javax.swing.JComboBox();
         genderJComboBox = new javax.swing.JComboBox();
-        diagnosedDateChooser = new com.toedter.calendar.JDateChooser();
         lblProfilePicture = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -194,10 +298,6 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         buttonNo.setText("No");
         add(buttonNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 500, -1, -1));
 
-        dobDateField.setBackground(new java.awt.Color(255, 255, 255));
-        dobDateField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(dobDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 180, -1));
-
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
 
@@ -246,10 +346,6 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
             }
         });
         add(genderJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 180, -1));
-
-        diagnosedDateChooser.setBackground(new java.awt.Color(255, 255, 255));
-        diagnosedDateChooser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(diagnosedDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 560, 190, -1));
 
         lblProfilePicture.setBackground(new java.awt.Color(0, 0, 0));
         lblProfilePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
@@ -621,8 +717,6 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton buttonYes;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField contactText;
-    private com.toedter.calendar.JDateChooser diagnosedDateChooser;
-    private com.toedter.calendar.JDateChooser dobDateField;
     private javax.swing.JTextField emailText;
     private javax.swing.JComboBox genderJComboBox;
     private javax.swing.JTextField hlaTypesText;

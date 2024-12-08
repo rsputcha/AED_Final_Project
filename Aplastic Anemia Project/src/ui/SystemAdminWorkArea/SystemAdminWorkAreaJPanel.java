@@ -4,11 +4,24 @@
  */
 package ui.SystemAdminWorkArea;
 
+
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import static javax.swing.SwingUtilities.getWindowAncestor;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -23,7 +36,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     EcoSystem ecosystem;
     
-    public SystemAdminWorkAreaJPanel() {
+    public SystemAdminWorkAreaJPanel(EcoSystem system) {
         initComponents();
         this.ecosystem=ecosystem;
     }
@@ -65,7 +78,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         Header.setBackground(new java.awt.Color(15, 29, 52));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
-        Header.setLayout(new java.awt.GridLayout());
+        Header.setLayout(new java.awt.GridLayout(1, 0));
 
         BtnManageNetwork.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnManageNetwork.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,6 +149,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         panelSysadminWorkContainer.add("ManageEnterpriseJPanel",manageEnterprise);
         CardLayout layout = (CardLayout) panelSysadminWorkContainer.getLayout();
         layout.next(panelSysadminWorkContainer);
+    
     }//GEN-LAST:event_BtnManageEnterpriseMouseClicked
 
     private void BtnManageAuthenticationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnManageAuthenticationMouseClicked

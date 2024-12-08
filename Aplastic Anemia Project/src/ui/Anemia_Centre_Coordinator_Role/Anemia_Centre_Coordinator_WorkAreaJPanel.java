@@ -4,7 +4,15 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Anemia_Centre_Organization;
+import Business.People.PatientDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import static java.time.Clock.system;
 
 /**
  *
@@ -15,8 +23,22 @@ public class Anemia_Centre_Coordinator_WorkAreaJPanel extends javax.swing.JPanel
     /**
      * Creates new form Anemia_Centre_Coordinator_WorkAreaJPanel
      */
-    public Anemia_Centre_Coordinator_WorkAreaJPanel() {
+     boolean a = true;
+    private UserAccount userAccount;
+    Anemia_Centre_Organization cancerCentreOrganization;
+    Enterprise enterprise;
+    EcoSystem system;
+    PatientDirectory patientDirectory;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private Network network;
+    
+    public Anemia_Centre_Coordinator_WorkAreaJPanel(UserAccount account,Anemia_Centre_Organization cancerCentreOrganization, Enterprise enterprise, EcoSystem system, Network network) {
         initComponents();
+        this.system = system;
+        this.userAccount = account;
+        this.cancerCentreOrganization = cancerCentreOrganization;
+        this.enterprise = enterprise;
+        this.network = network;
     }
 
     /**

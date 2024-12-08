@@ -12,6 +12,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
+import Magic.design.MyTableFormat;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -34,7 +35,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public ManageEnterpriseAdminJPanel() {
+    public ManageEnterpriseAdminJPanel(JPanel panelSysadminWorkContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -209,7 +210,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                                 .addComponent(txtAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(143, 143, 143)

@@ -10,9 +10,26 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.UserAccount.UserAccount;
+import Magic.Design.*;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import static javax.swing.SwingUtilities.getWindowAncestor;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.DoctorOrganization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import static javax.swing.SwingUtilities.getWindowAncestor;
 
 /**
  *
@@ -166,10 +183,12 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        ManageDoctorRequestJPanel manageDoctorRequestJPanel = new ManageDoctorRequestJPanel(system, userAccount, doctorOrganization, enterprise);
+       ManageDoctorRequestJPanel manageDoctorRequestJPanel = new ManageDoctorRequestJPanel(system, userAccount, doctorOrganization, enterprise);
         userProcessContainer.add("ManageDoctorRequestJPanel",manageDoctorRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+                                        
+
     }//GEN-LAST:event_jLabel5MouseClicked
 
 

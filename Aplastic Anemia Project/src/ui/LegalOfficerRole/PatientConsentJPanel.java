@@ -4,15 +4,22 @@
  */
 package ui.LegalOfficerRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.Bone_Marrow_Bank_Organization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import Magic.design.MyTableFormat;
+import com.sun.jdi.connect.Transport;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.util.Properties;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;

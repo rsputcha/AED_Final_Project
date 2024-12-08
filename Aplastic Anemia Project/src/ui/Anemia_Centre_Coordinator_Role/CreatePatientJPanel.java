@@ -14,6 +14,7 @@ import Business.People.Patient;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.System_Coordinator_Test_WorkRequest;
 import Business.WorkQueue.WorkRequest;
+import Magic.design.MyTableFormat;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

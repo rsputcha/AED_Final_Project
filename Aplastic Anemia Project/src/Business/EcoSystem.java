@@ -21,7 +21,8 @@ import java.util.ArrayList;
  *
  * @author saiteja
  */
-public class EcoSystem extends Organization {
+public class EcoSystem extends Organization{
+    
     private static EcoSystem business;
     
     /*
@@ -40,7 +41,7 @@ private UserAccountDirectory userAccountDirectory;
     private DonorRequestDirectory donorRequestDirectory;
     private PatientRequestDirectory patientRequestDirectory;
     private UserAccountDirectory userAccountDirectory;
-    
+
     public UserAccountDirectory getUserAccountDirectory() {
         if(this.userAccountDirectory == null) {
             userAccountDirectory = new UserAccountDirectory();

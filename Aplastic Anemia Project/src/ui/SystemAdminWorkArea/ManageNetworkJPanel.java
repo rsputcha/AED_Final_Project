@@ -7,9 +7,12 @@ package ui.SystemAdminWorkArea;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Network.Network;
+import Magic.design.MyTableFormat;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -25,15 +28,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageNetworkJPanel
-     */
     private JPanel userProcessContainer;
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
-    public ManageNetworkJPanel() {
+
+    /**
+     *
+     * Creates new form ManageNetworkJPanel
+     */
+    public ManageNetworkJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
+
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         tblNetwork.getTableHeader().setDefaultRenderer(new MyTableFormat());
@@ -54,9 +59,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     }
     
     public boolean isAlpha(String name) {
-        return name.matches("[a-zA-Z]+");
-    }
-    
+    return name.matches("[a-zA-Z]+");
+        }
+     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

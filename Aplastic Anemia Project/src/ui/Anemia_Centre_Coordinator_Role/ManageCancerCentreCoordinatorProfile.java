@@ -4,18 +4,33 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.Anemia_Centre_Organization;
+import Business.Organization.GovernmentOrganization;
+import Business.UserAccount.UserAccount;
+import java.util.Date;
+
 /**
  *
  * @author deepakreddy
  */
 public class ManageCancerCentreCoordinatorProfile extends javax.swing.JPanel {
+     private UserAccount userAccount;
+     private Enterprise enterprise ;
+     private GovernmentOrganization govtOrganization;
+     private Anemia_Centre_Organization cancerCentreOrganization;
 
     /**
      * Creates new form ManageCancerCentreCoordinatorProfile
      */
-    public ManageCancerCentreCoordinatorProfile() {
-        initComponents();
+    public ManageCancerCentreCoordinatorProfile(UserAccount userAccount, Anemia_Centre_Organization cancerCentreOrganization, Enterprise enterprise) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         initComponents();
+        this.userAccount = userAccount;
+        this.enterprise = enterprise;
+        this.cancerCentreOrganization = cancerCentreOrganization;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

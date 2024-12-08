@@ -46,7 +46,7 @@ public class Enterprise_Directory {
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.BloodCancerCentre){
-            enterprise=new Leukemia_Centre_Enterprise(name);
+            enterprise=new Anemia_Centre_Enterprise(name);
             enterpriseList.add(enterprise);
         }
         

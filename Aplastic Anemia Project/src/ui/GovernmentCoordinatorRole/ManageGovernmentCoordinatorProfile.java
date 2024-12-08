@@ -7,6 +7,7 @@ package ui.GovernmentCoordinatorRole;
 import Business.Enterprise.Enterprise;
 import Business.Organization.GovernmentOrganization;
 import Business.UserAccount.UserAccount;
+import java.util.Date;
 
 /**
  *
