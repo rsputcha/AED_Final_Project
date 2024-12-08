@@ -4,11 +4,18 @@
  */
 package ui.LegalOfficerRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.LegalOfficerOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import Magic.design.MyTableFormat;
+import com.sun.jdi.connect.Transport;
+import java.net.PasswordAuthentication;
+import java.util.Properties;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -298,7 +305,7 @@ public class ManageLegalOfficerRequestJPanel extends javax.swing.JPanel {
                 message.setText(messageTextField.getText());
                 Transport.send(message);
             }
-            catch(MessagingException ex){
+                    catch(MessagingException ex){
                 System.out.println(""+ex);
             }
 

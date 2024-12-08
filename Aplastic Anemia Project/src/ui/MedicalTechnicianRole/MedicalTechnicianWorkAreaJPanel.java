@@ -4,6 +4,7 @@
  */
 package ui.MedicalTechnicianRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -78,7 +79,7 @@ public class MedicalTechnicianWorkAreaJPanel extends javax.swing.JPanel {
 
         Header.setBackground(new java.awt.Color(15, 29, 52));
         Header.setPreferredSize(new java.awt.Dimension(800, 70));
-        Header.setLayout(new java.awt.GridLayout());
+        Header.setLayout(new java.awt.GridLayout(1, 0));
 
         BtnProfile.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnProfile.setForeground(new java.awt.Color(255, 255, 255));

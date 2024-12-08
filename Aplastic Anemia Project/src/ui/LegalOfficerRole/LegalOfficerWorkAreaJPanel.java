@@ -4,9 +4,11 @@
  */
 package ui.LegalOfficerRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.DoctorOrganization;
 import Business.Organization.LegalOfficerOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -65,7 +67,7 @@ public class LegalOfficerWorkAreaJPanel extends javax.swing.JPanel {
 
         Header.setBackground(new java.awt.Color(0, 0, 0));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
-        Header.setLayout(new java.awt.GridLayout());
+        Header.setLayout(new java.awt.GridLayout(1, 0));
 
         BtnProfile.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnProfile.setForeground(new java.awt.Color(255, 255, 255));
