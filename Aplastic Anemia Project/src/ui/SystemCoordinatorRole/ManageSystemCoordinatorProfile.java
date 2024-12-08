@@ -23,7 +23,7 @@ public class ManageSystemCoordinatorProfile extends javax.swing.JPanel {
     private SystemCoordinatorOrganization systOrganization;
      
     public ManageSystemCoordinatorProfile(UserAccount userAccount, SystemCoordinatorOrganization systOrganization, Enterprise enterprise) {
-        initComponents();
+        
         initComponents();
         this.userAccount = userAccount;
         this.enterprise = enterprise;
