@@ -64,7 +64,7 @@ public class OrganizationDirectory {
      public Organization createCancerCentreOrganization(Organization.BloodCancerCentreType cancerType, String realName){
         Organization organization = null;
         if (cancerType.getValue().equals(Organization.BloodCancerCentreType.BloodCancerCentre.getValue())){
-            organization = new Leukemia_Centre_Organization();
+            organization = new Anemia_Centre_Organization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }
