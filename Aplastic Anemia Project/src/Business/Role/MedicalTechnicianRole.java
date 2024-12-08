@@ -9,7 +9,9 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.MedicalTechnicianOrganization;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.MedicalTechnicianRole.MedicalTechnicianWorkAreaJPanel;
 
 /**
  *

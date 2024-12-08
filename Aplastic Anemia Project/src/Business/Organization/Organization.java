@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.EmployeeDirectory;
 import Business.HLA.PersonHLA;
 import Business.Role.Role;

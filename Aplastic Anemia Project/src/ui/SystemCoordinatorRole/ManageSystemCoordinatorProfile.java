@@ -7,6 +7,7 @@ package ui.SystemCoordinatorRole;
 import Business.Enterprise.Enterprise;
 import Business.Organization.SystemCoordinatorOrganization;
 import Business.UserAccount.UserAccount;
+import java.util.Date;
 
 /**
  *
@@ -21,7 +22,7 @@ public class ManageSystemCoordinatorProfile extends javax.swing.JPanel {
     private Enterprise enterprise ;
     private SystemCoordinatorOrganization systOrganization;
      
-    public ManageSystemCoordinatorProfile() {
+    public ManageSystemCoordinatorProfile(UserAccount userAccount, SystemCoordinatorOrganization systOrganization, Enterprise enterprise) {
         initComponents();
         initComponents();
         this.userAccount = userAccount;
