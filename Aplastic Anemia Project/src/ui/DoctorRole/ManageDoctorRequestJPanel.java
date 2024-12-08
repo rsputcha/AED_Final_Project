@@ -30,7 +30,7 @@ public class ManageDoctorRequestJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public ManageDoctorRequestJPanel() {
+    public ManageDoctorRequestJPanel(EcoSystem system, UserAccount userAccount, DoctorOrganization doctorOrganization, Enterprise enterprise) {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;

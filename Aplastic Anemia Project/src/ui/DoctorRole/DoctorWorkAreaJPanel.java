@@ -183,7 +183,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-       ManageDoctorRequestJPanel manageDoctorRequestJPanel = new ManageDoctorRequestJPanel(system, userAccount, doctorOrganization, enterprise);
+        ManageDoctorRequestJPanel manageDoctorRequestJPanel = new ManageDoctorRequestJPanel(system, userAccount, doctorOrganization, enterprise);
         userProcessContainer.add("ManageDoctorRequestJPanel",manageDoctorRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
