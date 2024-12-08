@@ -9,7 +9,9 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.SystemCoordinatorOrganization;
+import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.SystemCoordinatorRole.SystemCoordinatorWorkAreaJPanel;
 
 /**
  *

@@ -4,10 +4,12 @@
  */
 package ui.GovernmentCoordinatorRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.HLA.PersonHLA;
 import Business.People.Donor;
 import Business.People.DonorRequest;
+import Magic.design.MyTableFormat;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.BorderFactory;
@@ -497,6 +499,54 @@ public class VolunteerDonorRequestJPanel extends javax.swing.JPanel {
 
             */
     }//GEN-LAST:event_dobDateFielduDobKeyTyped
+    private void populateRequestDetails(DonorRequest donorRequest){
+            uidText.setText(donorRequest.getDonorID());
+            nameText.setText(donorRequest.getName());
+            dobDateField.setDate(donorRequest.getDob());
+            ageText.setText(String.valueOf(donorRequest.getAge()));
+            genderText.setText(donorRequest.getGender());
+            hlaTypesTextField.setText(String.join(", ",donorRequest.getHLA().getHlaValuesList()));
+            streetText.setText(donorRequest.getStreetAddress());
+            cityText.setText(donorRequest.getCity());
+            stateText.setText(donorRequest.getState());
+            zipText.setText(String.valueOf(donorRequest.getZipCode()));
+            contactText.setText(String.valueOf(donorRequest.getContact()));
+            emailText.setText(donorRequest.getEmailID());
+            statusText.setText(donorRequest.getStatus());
+
+            txtBrainInjury.setText(String.valueOf(donorRequest.isBrainInjury()));
+            txtBreathingProb.setText(String.valueOf(donorRequest.isBreathingProb()));
+            txtDiabitiesBP.setText(String.valueOf(donorRequest.isDiabitiesBP()));
+            txtChronicPains.setText(String.valueOf(donorRequest.isChronicPains()));
+
+            if(donorRequest.getdP() !=null){
+                //Working line
+                byte[] JLabelpictureLabel = donorRequest.getdP();
+                ImageIcon i = setPicturebyte(JLabelpictureLabel);
+                lblProfilePicture.setIcon(i);
+            }
+            else{
+                System.err.println("No Image");
+            }
+
+            uidText.setEditable(false);
+            nameText.setEditable(false);
+            ageText.setEditable(false);
+            genderText.setEditable(false);
+            hlaTypesTextField.setEditable(false);
+            streetText.setEditable(false);
+            cityText.setEditable(false);
+            stateText.setEditable(false);
+            zipText.setEditable(false);
+            contactText.setEditable(false);
+            statusText.setEditable(false);
+            statusText.setEditable(false);
+            txtBrainInjury.setEditable(false);
+            txtBreathingProb.setEditable(false);
+            txtDiabitiesBP.setEditable(false);
+            txtChronicPains.setEditable(false);
+            dobDateField.setEnabled(false);
+    }
 
     private void txtDiabitiesBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiabitiesBPActionPerformed
         // TODO add your handling code here:
@@ -549,6 +599,11 @@ public class VolunteerDonorRequestJPanel extends javax.swing.JPanel {
             dB4OUtil.storeSystem(system);
 
         }
+         
+    
+    
+    
+
     }//GEN-LAST:event_requestTableMousePressed
 
 

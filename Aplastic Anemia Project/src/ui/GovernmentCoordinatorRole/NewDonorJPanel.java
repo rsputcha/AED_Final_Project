@@ -4,11 +4,13 @@
  */
 package ui.GovernmentCoordinatorRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.People.DonorRequest;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.util.Date;
@@ -161,7 +163,6 @@ public class NewDonorJPanel extends javax.swing.JPanel {
         genderJComboBox = new javax.swing.JComboBox();
         stateJComboBox = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        dobDateField = new com.toedter.calendar.JDateChooser();
         lblProfilePicture = new javax.swing.JLabel();
         btnYesQ4 = new javax.swing.JRadioButton();
         btnNoQ4 = new javax.swing.JRadioButton();
@@ -284,31 +285,6 @@ public class NewDonorJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 700, 120, 40));
-
-        dobDateField.setBackground(new java.awt.Color(255, 255, 255));
-        dobDateField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dobDateField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dobDateFieldFocusLost(evt);
-            }
-        });
-        dobDateField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dobDateFieldMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                dobDateFieldMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                dobDateFieldagePop(evt);
-            }
-        });
-        dobDateField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                dobDateFielduDobKeyTyped(evt);
-            }
-        });
-        add(dobDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 170, -1));
 
         lblProfilePicture.setBackground(new java.awt.Color(0, 0, 0));
         lblProfilePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
@@ -914,7 +890,6 @@ public class NewDonorJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnYesQ4;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField contactText;
-    private com.toedter.calendar.JDateChooser dobDateField;
     private javax.swing.JTextField emailText;
     private javax.swing.JComboBox genderJComboBox;
     private javax.swing.JTextField hlaTypesTextField;

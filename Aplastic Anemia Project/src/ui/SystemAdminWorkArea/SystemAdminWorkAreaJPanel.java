@@ -23,7 +23,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     EcoSystem ecosystem;
     
-    public SystemAdminWorkAreaJPanel() {
+    public SystemAdminWorkAreaJPanel(EcoSystem system) {
         initComponents();
         this.ecosystem=ecosystem;
     }

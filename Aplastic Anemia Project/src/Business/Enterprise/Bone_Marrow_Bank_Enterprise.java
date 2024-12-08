@@ -5,14 +5,15 @@
 package Business.Enterprise;
 
 import Business.Enterprise.Enterprise.EnterpriseType;
+import Business.Role.Role;
 import java.util.ArrayList;
-import javax.management.relation.Role;
 
 /**
  *
  * @author saiteja
  */
-public class Bone_Marrow_Bank_Enterprise {
+public class Bone_Marrow_Bank_Enterprise extends Enterprise {
+    
     public Bone_Marrow_Bank_Enterprise(String name){
         super(name,EnterpriseType.BoneMarrowBank);
     }

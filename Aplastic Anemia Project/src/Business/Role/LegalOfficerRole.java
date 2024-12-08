@@ -21,7 +21,7 @@ import ui.LegalOfficerRole.LegalOfficerWorkAreaJPanel;
  */
 public class LegalOfficerRole {
     
-    @Override
+    
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
         return new LegalOfficerWorkAreaJPanel(account, (LegalOfficerOrganization) organization, enterprise, business, network);
     }

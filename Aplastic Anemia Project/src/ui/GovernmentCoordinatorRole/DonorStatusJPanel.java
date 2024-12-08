@@ -8,6 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.People.Donor;
 import Business.People.DonorRequest;
+import Magic.design.MyTableFormat;
 import javax.swing.table.DefaultTableModel;
 
 /**

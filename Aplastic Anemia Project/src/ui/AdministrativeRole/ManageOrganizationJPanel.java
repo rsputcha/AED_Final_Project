@@ -4,6 +4,7 @@
  */
 package ui.AdministrativeRole;
 
+import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import static Business.Enterprise.Enterprise.EnterpriseType.BloodCancerCentre;
@@ -17,6 +18,7 @@ import Business.Organization.Organization.GovernmentType;
 import Business.Organization.Organization.LegalType;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
+import Magic.design.MyTableFormat;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;

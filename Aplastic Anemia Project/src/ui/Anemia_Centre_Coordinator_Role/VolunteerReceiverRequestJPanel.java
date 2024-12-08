@@ -4,19 +4,71 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Magic.Design.*;
+import Business.Organization.LegalOfficerOrganization;
+import Business.Organization.Organization;
+import Business.People.Patient;
+import Business.People.PatientRequest;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.System_Coordinator_Test_WorkRequest;
+import Business.WorkQueue.WorkRequest;
+//import Magic.Design.MyJButton;
+//import Magic.Design.MyTableFormat;
+import Magic.design.MyTableFormat;
+import java.awt.Color;
+import java.awt.Image;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author deepakreddy
  */
 public class VolunteerReceiverRequestJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form VolunteerReceiverRequestJPanel
-     */
-    public VolunteerReceiverRequestJPanel() {
+    private  EcoSystem system;
+    private PatientRequest patientRequest;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private UserAccount userAccount;
+    private Network network;
+    
+    public VolunteerReceiverRequestJPanel(EcoSystem system, UserAccount userAccount, Network network) {
         initComponents();
+        this.system = system;
+        this.userAccount = userAccount;
+        this.network = network;
+        requestTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        populateRequestTable();
     }
+  
 
+    private void populateRequestTable(){
+        DefaultTableModel dtm = (DefaultTableModel) requestTable.getModel();
+        
+        dtm.setRowCount(0);
+        
+         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPatientRequestList()){            
+            Object row[] = new Object[4];
+            row[0]= patientRequest;
+            row[1]= patientRequest.getName();
+            row[2]= patientRequest.getContact();
+            row[3]= patientRequest.getStatus();
+              
+            dtm.addRow(row);
+        }        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,8 +113,6 @@ public class VolunteerReceiverRequestJPanel extends javax.swing.JPanel {
         statusText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblProfilePicture = new javax.swing.JLabel();
-        dobDateField = new com.toedter.calendar.JDateChooser();
-        diagnosedDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -260,16 +310,6 @@ public class VolunteerReceiverRequestJPanel extends javax.swing.JPanel {
         lblProfilePicture.setBackground(new java.awt.Color(0, 0, 0));
         lblProfilePicture.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         add(lblProfilePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 160, 140));
-
-        dobDateField.setBackground(new java.awt.Color(0, 0, 0));
-        dobDateField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dobDateField.setForeground(new java.awt.Color(255, 255, 255));
-        add(dobDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 180, -1));
-
-        diagnosedDateChooser.setBackground(new java.awt.Color(0, 0, 0));
-        diagnosedDateChooser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        diagnosedDateChooser.setForeground(new java.awt.Color(255, 255, 255));
-        add(diagnosedDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 620, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel2.setText("Status");
@@ -470,8 +510,6 @@ public class VolunteerReceiverRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton buttonReject;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField contactText;
-    private com.toedter.calendar.JDateChooser diagnosedDateChooser;
-    private com.toedter.calendar.JDateChooser dobDateField;
     private javax.swing.JTextField emailText;
     private javax.swing.JTextField genderText;
     private javax.swing.JTextField hlaText;
@@ -508,4 +546,8 @@ public class VolunteerReceiverRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField uidText;
     private javax.swing.JTextField zipText;
     // End of variables declaration//GEN-END:variables
+
+    private void populateRequestDetails(PatientRequest patientRequest) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

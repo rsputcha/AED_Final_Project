@@ -12,7 +12,7 @@ import java.util.Date;
  * @author saiteja
  */
 public class PatientRequest {
-    private String receiverID;
+      private String receiverID;
     private String name;
     private Date dob;
     private Date cancerDiagnosedDate;
