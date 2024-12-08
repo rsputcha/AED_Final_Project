@@ -4,16 +4,24 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
 import Business.Organization.LegalOfficerOrganization;
 import Business.Organization.Organization;
 import Business.People.Patient;
+import Business.UserAccount.UserAccount;
 import Business.WorkQueue.System_Coordinator_Test_WorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import static java.time.Clock.system;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,8 +32,69 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatePatientJPanel
      */
-    public CreatePatientJPanel() {
+    
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Network network;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+     
+    public CreatePatientJPanel(EcoSystem system, UserAccount userAccount, Network network) {
         initComponents();
+        
+        this.system = system;
+        this.userAccount = userAccount;
+        this.network = network;
+        populateTable();
+        populatePatientTable();
+        
+        tblPatient.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        tblRequest.getTableHeader().setDefaultRenderer(new MyTableFormat());
+    }
+    
+    private void populatePatientTable(){
+    DefaultTableModel dtmA = (DefaultTableModel)tblPatient.getModel();
+      dtmA.setRowCount(0);
+      Object row[] = new Object[5];
+       String line = "";  
+       String splitBy = ",";  
+        try   
+        {  
+            //parsing a CSV file into BufferedReader class constructor  
+            BufferedReader br = new BufferedReader(new FileReader("PatientsRecord.csv"));  
+            while ((line = br.readLine()) != null)   //returns a Boolean value  
+            {
+            String[] csv = line.split(splitBy);    // use comma as separator 
+            row[0]= csv[0];
+            row[1]= csv[1];
+            row[2]= csv[2];
+            row[3]= csv[3];
+            row[4]= csv[4];
+            
+            dtmA.addRow(row);
+        }   }
+            catch (IOException e)   
+            {  e.printStackTrace(); }   
+    
+    
+    }
+    
+    private void populateTable(){
+        DefaultTableModel dtm = (DefaultTableModel) tblRequest.getModel();
+        
+        dtm.setRowCount(0);
+        
+
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[6];
+            row[0] = request;
+            
+            row[1] = request.getSummary();
+            row[2] = request.getPatient();
+            row[3] = request.getPatient().getEmailID();
+            row[4] = request.getStatus();
+            row[5] = request.getActionDate();
+            dtm.addRow(row);
+        }        
     }
 
     /**
