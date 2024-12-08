@@ -8,6 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Magic.design.MyTableFormat;
 import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,7 +32,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public ManageEnterpriseJPanel() {
+    public ManageEnterpriseJPanel(JPanel panelSysadminWorkContainer, EcoSystem ecosystem) {
         initComponents();
         initComponents();
 

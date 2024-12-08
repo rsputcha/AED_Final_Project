@@ -14,6 +14,7 @@ import Business.Organization.SystemCoordinatorOrganization;
 import Business.People.PatientDirectory;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import Magic.design.MyTableFormat;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

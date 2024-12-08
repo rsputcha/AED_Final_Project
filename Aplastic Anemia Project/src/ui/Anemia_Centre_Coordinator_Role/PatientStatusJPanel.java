@@ -4,17 +4,67 @@
  */
 package ui.Anemia_Centre_Coordinator_Role;
 
+
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.People.Donor;
+import Magic.Design.*;
+import Business.People.Patient;
+//import Magic.Design.MyJLabel;
+import Business.People.PatientRequest;
+//import Magic.Design.MyJButton;
+import Magic.design.MyTableFormat;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author deepakreddy
  */
 public class PatientStatusJPanel extends javax.swing.JPanel {
+ private EcoSystem system;
+      private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
-    /**
-     * Creates new form PatientStatusJPanel
-     */
-    public PatientStatusJPanel() {
+    PatientStatusJPanel(EcoSystem system) {
         initComponents();
+        this.system = system;
+        patientTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
+         patientTable1.getTableHeader().setDefaultRenderer(new MyTableFormat());
+        populatePatientTable();
+        populatePatientRequestsTable();
+        
+    }
+    private void populatePatientTable(){
+        DefaultTableModel dtm = (DefaultTableModel) patientTable.getModel();
+        
+        dtm.setRowCount(0);
+        
+         for(Patient patient: system.getPatientDirectory().getPatientList())
+         {            
+            Object row[] = new Object[4];
+            row[0]= patient;
+            row[1]=patient.getName();
+            row[2]=patient.getContact();
+            row[3]=patient.getStatus();
+              
+            dtm.addRow(row);
+         }
+    }
+    
+     private void populatePatientRequestsTable(){
+        DefaultTableModel dtm = (DefaultTableModel) patientTable1.getModel();
+        
+        dtm.setRowCount(0);
+        
+         for(PatientRequest patient: system.getPatientRequestDirectory().getPatientRequestList())
+         {            
+            Object row[] = new Object[4];
+            row[0]= patient;
+            row[1]=patient.getName();
+            row[2]=patient.getContact();
+            row[3]=patient.getStatus();
+              
+            dtm.addRow(row);
+         }
     }
 
     /**
