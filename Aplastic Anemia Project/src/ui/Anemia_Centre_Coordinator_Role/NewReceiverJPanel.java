@@ -7,10 +7,8 @@ package ui.Anemia_Centre_Coordinator_Role;
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Magic.Design.*;
-import Magic.Design.MyJLabel;
 import Business.People.PatientRequestDirectory;
 import Business.People.PatientRequest;
-import Magic.Design.MyJButton;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -119,9 +117,30 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         buttonNo.setEnabled(false);
         btnAddPhoto.setEnabled(false);
     }
-      public boolean isAlpha(String name) {
+    
+    public boolean isAlpha(String name) {
         return name.matches("[a-zA-Z]+");
-        }
+    }
+    
+    public ImageIcon ResizeImage(String ImagePath)
+    {
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(lblProfilePicture.getWidth(), lblProfilePicture.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
+      
+    private ImageIcon setPicture(String carImageLocation, JLabel carImage){
+
+        ImageIcon imageCar;
+        imageCar = new ImageIcon(carImageLocation);
+        Image picCar = imageCar.getImage();
+        Image resizedImage = picCar.getScaledInstance(carImage.getWidth(), carImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon selectedCarPicture = new ImageIcon(resizedImage);
+        
+        return selectedCarPicture;  
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,7 +181,6 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         stateJComboBox = new javax.swing.JComboBox();
         genderJComboBox = new javax.swing.JComboBox();
-        lblProfilePicture = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -171,6 +189,9 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         hlaTypesText = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        diagnosedDateChooser = new com.toedter.calendar.JDateChooser();
+        dobDateField = new com.toedter.calendar.JDateChooser();
+        lblProfilePicture = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -347,11 +368,6 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
         });
         add(genderJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 180, -1));
 
-        lblProfilePicture.setBackground(new java.awt.Color(0, 0, 0));
-        lblProfilePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        lblProfilePicture.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        add(lblProfilePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 120, 130, 130));
-
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jButton2.setText("New Form");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -395,6 +411,19 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 680, 110, 40));
+
+        diagnosedDateChooser.setBackground(new java.awt.Color(255, 255, 255));
+        diagnosedDateChooser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(diagnosedDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 560, 190, -1));
+
+        dobDateField.setBackground(new java.awt.Color(255, 255, 255));
+        dobDateField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(dobDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 180, -1));
+
+        lblProfilePicture.setBackground(new java.awt.Color(0, 0, 0));
+        lblProfilePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        lblProfilePicture.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        add(lblProfilePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 120, 130, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -717,6 +746,8 @@ public class NewReceiverJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton buttonYes;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField contactText;
+    private com.toedter.calendar.JDateChooser diagnosedDateChooser;
+    private com.toedter.calendar.JDateChooser dobDateField;
     private javax.swing.JTextField emailText;
     private javax.swing.JComboBox genderJComboBox;
     private javax.swing.JTextField hlaTypesText;
