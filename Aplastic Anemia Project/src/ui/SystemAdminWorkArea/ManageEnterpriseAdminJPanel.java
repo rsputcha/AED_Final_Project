@@ -37,8 +37,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
     
     public ManageEnterpriseAdminJPanel(JPanel panelSysadminWorkContainer, EcoSystem ecosystem) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.system = system;
+        this.userProcessContainer = panelSysadminWorkContainer;
+        this.system = ecosystem;
 
         enterpriseJTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
         tblAdminUserName.getTableHeader().setDefaultRenderer(new MyTableFormat());
@@ -91,9 +91,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 row[0] = enterprise;
                 row[1] = enterprise.getEnterpriseType().getValue();
                 row[2] = network.getName();
-                row[5] = enterprise.getEmail();
                 row[3] = enterprise.getContact();
                 row[4] = enterprise.getZipcode();
+                row[5] = enterprise.getEmail();
              
                 model.addRow(row);
                 

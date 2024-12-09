@@ -24,7 +24,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     EcoSystem ecosystem;
     
-    public SystemAdminWorkAreaJPanel(EcoSystem system) {
+    public SystemAdminWorkAreaJPanel(EcoSystem ecosystem) {
         initComponents();
         this.ecosystem=ecosystem;
     }
@@ -55,18 +55,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelSysadminWorkContainer = new javax.swing.JPanel();
         Header = new javax.swing.JPanel();
         BtnManageNetwork = new javax.swing.JLabel();
         BtnManageEnterprise = new javax.swing.JLabel();
         BtnManageAuthentication = new javax.swing.JLabel();
         lblStatistics = new javax.swing.JLabel();
+        panelSysadminWorkContainer = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
-
-        panelSysadminWorkContainer.setBackground(new java.awt.Color(255, 153, 153));
-        panelSysadminWorkContainer.setLayout(new java.awt.CardLayout());
-        add(panelSysadminWorkContainer, java.awt.BorderLayout.CENTER);
 
         Header.setBackground(new java.awt.Color(15, 29, 52));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
@@ -121,6 +117,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         Header.add(lblStatistics);
 
         add(Header, java.awt.BorderLayout.PAGE_START);
+
+        panelSysadminWorkContainer.setBackground(new java.awt.Color(255, 153, 153));
+        panelSysadminWorkContainer.setLayout(new java.awt.CardLayout());
+        add(panelSysadminWorkContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnManageNetworkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnManageNetworkMouseClicked

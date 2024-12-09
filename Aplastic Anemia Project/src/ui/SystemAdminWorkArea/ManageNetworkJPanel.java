@@ -72,13 +72,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        place_input = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        place_jButton1 = new javax.swing.JButton();
-        btnDeleteNetwork = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblNetwork = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -88,77 +83,45 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         txtCountry = new javax.swing.JTextField();
         btnCreateNetwork = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblNetwork = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        place_input = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        place_jButton1 = new javax.swing.JButton();
+        btnDeleteNetwork = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(241, 250, 238));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        jPanel4.setPreferredSize(new java.awt.Dimension(250, 400));
-        jPanel4.setRequestFocusEnabled(false);
-        jPanel4.setVerifyInputWhenFocusTarget(false);
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jScrollPane1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
-        place_input.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        place_input.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                place_inputActionPerformed(evt);
+        tblNetwork.setBackground(new java.awt.Color(0, 0, 0));
+        tblNetwork.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 255, 204)));
+        tblNetwork.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        tblNetwork.setForeground(new java.awt.Color(255, 255, 255));
+        tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "State", "Country"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jPanel4.add(place_input, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 320, -1));
+        tblNetwork.setFocusable(false);
+        tblNetwork.setGridColor(new java.awt.Color(255, 255, 255));
+        tblNetwork.setRowHeight(30);
+        tblNetwork.setSelectionForeground(new java.awt.Color(204, 255, 204));
+        jScrollPane1.setViewportView(tblNetwork);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Search Network");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 326, 36));
-
-        place_jButton1.setText("Search");
-        place_jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                place_jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(place_jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 110, 30));
-
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 560, 230));
-
-        btnDeleteNetwork.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        btnDeleteNetwork.setText("Delete Network");
-        btnDeleteNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDeleteNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteNetworkActionPerformed(evt);
-            }
-        });
-        add(btnDeleteNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 180, 40));
-
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Manage Network");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(546, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 520, 270));
 
         jPanel2.setBackground(new java.awt.Color(241, 250, 238));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
@@ -210,87 +173,73 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 380, 440));
 
-        jScrollPane1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
 
-        tblNetwork.setBackground(new java.awt.Color(0, 0, 0));
-        tblNetwork.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 255, 204)));
-        tblNetwork.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        tblNetwork.setForeground(new java.awt.Color(255, 255, 255));
-        tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Manage Network");
 
-            },
-            new String [] {
-                "Name", "State", "Country"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(546, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, -1));
+
+        jPanel4.setBackground(new java.awt.Color(241, 250, 238));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        jPanel4.setPreferredSize(new java.awt.Dimension(250, 400));
+        jPanel4.setRequestFocusEnabled(false);
+        jPanel4.setVerifyInputWhenFocusTarget(false);
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        place_input.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        place_input.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                place_inputActionPerformed(evt);
             }
         });
-        tblNetwork.setFocusable(false);
-        tblNetwork.setGridColor(new java.awt.Color(255, 255, 255));
-        tblNetwork.setRowHeight(30);
-        tblNetwork.setSelectionForeground(new java.awt.Color(204, 255, 204));
-        jScrollPane1.setViewportView(tblNetwork);
+        jPanel4.add(place_input, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 320, -1));
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 520, 270));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Search Network");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 326, 36));
+
+        place_jButton1.setText("Search");
+        place_jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                place_jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(place_jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 110, 30));
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 560, 230));
+
+        btnDeleteNetwork.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        btnDeleteNetwork.setText("Delete Network");
+        btnDeleteNetwork.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDeleteNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteNetworkActionPerformed(evt);
+            }
+        });
+        add(btnDeleteNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 180, 40));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void place_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_place_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_place_inputActionPerformed
-
-    private void place_jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_place_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String location = place_input.getText();
-        if (location.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter a location.");
-            return;
-        }
-
-        try {
-            String encodedLocation = URLEncoder.encode(location, "UTF-8");
-            Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-            if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-                URI uri = new URI("https://www.google.com/maps/search/?api=1&query=" + encodedLocation);
-                desktop.browse(uri);
-            } else {
-                throw new UnsupportedOperationException("Desktop browsing is not supported on this platform.");
-            }
-        } catch (IOException | URISyntaxException ex) {
-            Logger.getLogger(ManageNetworkJPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_place_jButton1ActionPerformed
-
-    private void btnDeleteNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteNetworkActionPerformed
-        int selectedRow = tblNetwork.getSelectedRow();
-        if(selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, new JLabel("Select a network, to delete") , "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        int input = JOptionPane.showConfirmDialog(null
-            , "Are you sure, you want to delete", "Confirmation"
-            ,JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
-        if (input == 0) {
-            for ( Network network :system.getNetworkList()){
-                if( network.getName().equals(tblNetwork.getValueAt(selectedRow,0))) {
-                    String nName = network.getName();
-                    system.getNetworkList().remove(network);
-                    JOptionPane.showMessageDialog(null, new JLabel(nName + " network deleted Succesfully!!") , "Error", JOptionPane.ERROR_MESSAGE);
-                    populateNetworkTable();
-                    return;
-                }
-            }
-        }
-        else
-        return;
-        JOptionPane.showMessageDialog(null, new JLabel("<html><b>Network Name can not be found!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_btnDeleteNetworkActionPerformed
 
     private void txtNetWorkNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNetWorkNameActionPerformed
         // TODO add your handling code here:
@@ -374,6 +323,57 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                     txtCountry.setText("");
                 }  }
     }//GEN-LAST:event_btnCreateNetworkActionPerformed
+
+    private void place_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_place_inputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_place_inputActionPerformed
+
+    private void place_jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_place_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String location = place_input.getText();
+        if (location.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a location.");
+            return;
+        }
+
+        try {
+            String encodedLocation = URLEncoder.encode(location, "UTF-8");
+            Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+            if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+                URI uri = new URI("https://www.google.com/maps/search/?api=1&query=" + encodedLocation);
+                desktop.browse(uri);
+            } else {
+                throw new UnsupportedOperationException("Desktop browsing is not supported on this platform.");
+            }
+        } catch (IOException | URISyntaxException ex) {
+            Logger.getLogger(ManageNetworkJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_place_jButton1ActionPerformed
+
+    private void btnDeleteNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteNetworkActionPerformed
+        int selectedRow = tblNetwork.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, new JLabel("Select a network, to delete") , "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int input = JOptionPane.showConfirmDialog(null
+            , "Are you sure, you want to delete", "Confirmation"
+            ,JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (input == 0) {
+            for ( Network network :system.getNetworkList()){
+                if( network.getName().equals(tblNetwork.getValueAt(selectedRow,0))) {
+                    String nName = network.getName();
+                    system.getNetworkList().remove(network);
+                    JOptionPane.showMessageDialog(null, new JLabel(nName + " network deleted Succesfully!!") , "Error", JOptionPane.ERROR_MESSAGE);
+                    populateNetworkTable();
+                    return;
+                }
+            }
+        }
+        else
+        return;
+        JOptionPane.showMessageDialog(null, new JLabel("<html><b>Network Name can not be found!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btnDeleteNetworkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
