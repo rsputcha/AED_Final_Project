@@ -11,8 +11,9 @@ import Business.Organization.LegalOfficerOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import Magic.design.MyTableFormat;
-import com.sun.jdi.connect.Transport;
-import java.net.PasswordAuthentication;
+import javax.mail.Transport;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -21,6 +22,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -302,7 +304,7 @@ public class ManageLegalOfficerRequestJPanel extends javax.swing.JPanel {
             });
 
             try{
-                MimeMessage message = new  MimeMessage(session);
+                MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(fromEmail));
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
                 message.setSubject(subject);
