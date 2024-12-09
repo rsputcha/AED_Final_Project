@@ -11,13 +11,13 @@ import javax.management.relation.Role;
  *
  * @author saiteja
  */
-public class Anemia_Centre_Enterprise  extends Enterprise {
+public class Anemia_Centre_Enterprise extends Enterprise {
     
     public Anemia_Centre_Enterprise(String name){
         super(name,EnterpriseType.BloodCancerCentre);
     }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Business.Role.Role> getSupportedRole() {
         return null;
     }
     
