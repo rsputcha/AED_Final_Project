@@ -7,21 +7,9 @@ package ui.SystemAdminWorkArea;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Network.Network;
-import Business.Organization.Organization;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import static javax.swing.SwingUtilities.getWindowAncestor;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -67,18 +55,22 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelSysadminWorkContainer = new javax.swing.JPanel();
         Header = new javax.swing.JPanel();
         BtnManageNetwork = new javax.swing.JLabel();
         BtnManageEnterprise = new javax.swing.JLabel();
         BtnManageAuthentication = new javax.swing.JLabel();
         lblStatistics = new javax.swing.JLabel();
-        panelSysadminWorkContainer = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
 
+        panelSysadminWorkContainer.setBackground(new java.awt.Color(255, 153, 153));
+        panelSysadminWorkContainer.setLayout(new java.awt.CardLayout());
+        add(panelSysadminWorkContainer, java.awt.BorderLayout.CENTER);
+
         Header.setBackground(new java.awt.Color(15, 29, 52));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
-        Header.setLayout(new java.awt.GridLayout(1, 0));
+        Header.setLayout(new java.awt.GridLayout());
 
         BtnManageNetwork.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnManageNetwork.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,10 +121,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         Header.add(lblStatistics);
 
         add(Header, java.awt.BorderLayout.PAGE_START);
-
-        panelSysadminWorkContainer.setBackground(new java.awt.Color(255, 153, 153));
-        panelSysadminWorkContainer.setLayout(new java.awt.CardLayout());
-        add(panelSysadminWorkContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnManageNetworkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnManageNetworkMouseClicked
@@ -149,7 +137,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         panelSysadminWorkContainer.add("ManageEnterpriseJPanel",manageEnterprise);
         CardLayout layout = (CardLayout) panelSysadminWorkContainer.getLayout();
         layout.next(panelSysadminWorkContainer);
-    
     }//GEN-LAST:event_BtnManageEnterpriseMouseClicked
 
     private void BtnManageAuthenticationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnManageAuthenticationMouseClicked

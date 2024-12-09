@@ -4,6 +4,13 @@
  */
 package ui;
 
+import Business.EcoSystem;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import ui.Anemia_Centre_Coordinator_Role.NewReceiverJPanel;
+import ui.GovernmentCoordinatorRole.NewDonorJPanel;
+
 /**
  *
  * @author deepakreddy
@@ -13,8 +20,31 @@ public class DonorReceiverFramePage extends javax.swing.JFrame {
     /**
      * Creates new form DonorReceiverFramePage
      */
-    public DonorReceiverFramePage() {
+    public DonorReceiverFramePage(String type, EcoSystem system) {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2- this.getSize().height/2);
+        
+        if(type.equals("donor")){
+            userProcessContainer.remove(this);
+            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+            NewDonorJPanel newdpanel = new NewDonorJPanel(system);
+            userProcessContainer.add("workArea", newdpanel);
+            
+            layout.next(userProcessContainer);
+        }
+        else{
+            userProcessContainer.remove(this);
+            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+            NewReceiverJPanel newdpanel = new NewReceiverJPanel(system);
+            userProcessContainer.add("workArea", newdpanel);
+            
+            layout.next(userProcessContainer);
+        }
+    }
+    
+    private DonorReceiverFramePage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -26,17 +56,21 @@ public class DonorReceiverFramePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        userProcessContainer = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        userProcessContainer.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(userProcessContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(userProcessContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +112,6 @@ public class DonorReceiverFramePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }
