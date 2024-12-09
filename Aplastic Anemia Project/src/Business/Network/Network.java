@@ -11,7 +11,7 @@ import Business.Enterprise.Enterprise_Directory;
  * @author saiteja
  */
 public class Network {
-     private String name;
+    private String name;
     private String state;
     private String country;
     
