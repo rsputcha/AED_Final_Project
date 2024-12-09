@@ -32,9 +32,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public ManageEnterpriseJPanel(JPanel panelSysadminWorkContainer, EcoSystem ecosystem) {
+    public ManageEnterpriseJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
-        initComponents();
+        
 
         this.userProcessContainer = userProcessContainer;
         this.system = system;
