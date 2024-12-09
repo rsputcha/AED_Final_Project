@@ -13,15 +13,18 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import Magic.design.MyTableFormat;
-import com.sun.jdi.connect.Transport;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.Properties;
 import javax.imageio.ImageIO;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -274,7 +277,7 @@ public class PatientConsentJPanel extends javax.swing.JPanel {
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
             // Authenticate sender
-            Authenticator auth = new Authenticator() {
+            javax.mail.Authenticator auth = new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(fromEmail, password);
                 }
@@ -292,7 +295,7 @@ public class PatientConsentJPanel extends javax.swing.JPanel {
                 message.setText("Your request has been rejected");
 
                 // Send email message
-                Transport.send(message);
+                javax.mail.Transport.send(message);
 
                 System.out.println("Email sent successfully.");
             } catch (MessagingException e) {
@@ -369,7 +372,7 @@ public class PatientConsentJPanel extends javax.swing.JPanel {
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
             // Authenticate sender
-            Authenticator auth = new Authenticator() {
+            javax.mail.Authenticator auth = new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(fromEmail, password);
                 }
@@ -387,7 +390,7 @@ public class PatientConsentJPanel extends javax.swing.JPanel {
                 message.setText("Your request has been approved and passed to LiverBank");
 
                 // Send email message
-                Transport.send(message);
+                javax.mail.Transport.send(message);
 
                 System.out.println("Email sent successfully.");
             } catch (MessagingException e) {

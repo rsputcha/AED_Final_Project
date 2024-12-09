@@ -17,9 +17,9 @@ import ui.GovernmentCoordinatorRole.GovernmentCoordinatorWorkAreaJPanel;
  *
  * @author deepakreddy
  */
-public class GovernmentCoordinatorRole {
+public class GovernmentCoordinatorRole extends Role{
     
-
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
         return new GovernmentCoordinatorWorkAreaJPanel(account, (GovernmentOrganization) organization, enterprise, business, network);
     }

@@ -11,6 +11,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -154,11 +162,10 @@ public class StatisticsJPanel extends javax.swing.JPanel {
 
         pieDataset.setValue("BoneMarrow Donor", system.getDonorDirectory().getDonorList().size());
         pieDataset.setValue("BoneMarrow Patient(Receiver)", system.getPatientDirectory().getPatientList().size());
-        // pieDataset.setValue("Three", new Integer(30));
-        // pieDataset.setValue("Four", new Integer(40));
+        
         JFreeChart piechart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
         PiePlot piechrt = (PiePlot)piechart.getPlot();
-        //piechrt.setForegroundAlpha(TOP_ALIGNMENT);
+        
         ChartFrame chrtframe = new ChartFrame("Pie Chart", piechart);
         chrtframe.setVisible(true);
         chrtframe.setSize(1200,850);
@@ -194,8 +201,7 @@ public class StatisticsJPanel extends javax.swing.JPanel {
         linechartdata.setValue(system.getDonorDirectory().getDonorList().size(),"Patients/Donors","BoneMarrow Donor");
         linechartdata.setValue(system.getPatientDirectory().getPatientList().size(),"Patients/Donors","BoneMarrow Patient(Receiver)");
 
-        JFreeChart linechart = ChartFactory.createLineChart3D("Requests", "Patients/Donors", "Patients/Donors", linechartdata, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot linechrt = linechart.getCategoryPlot();
+JFreeChart linechart = ChartFactory.createLineChart3D("Requests", "Patients/Donors", "Patients/Donors", linechartdata, PlotOrientation.VERTICAL, false, true, false);        CategoryPlot linechrt = linechart.getCategoryPlot();
         linechrt.setRangeGridlinePaint(Color.ORANGE);
         ChartFrame chrtframe = new ChartFrame("Contribution", linechart, true);
         chrtframe.setVisible(true);
