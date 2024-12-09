@@ -20,8 +20,9 @@ import ui.BoneMarrowBankCoordinatorWorkArea.BoneMarrowBankCoordinatorWorkAreaJPa
  *
  * @author deepakreddy
  */
-public class Bone_Marrow_Bank_CoordinatorRole {
-    
+public class Bone_Marrow_Bank_CoordinatorRole extends Role{
+
+       
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
         return new BoneMarrowBankCoordinatorWorkAreaJPanel(account, (Bone_Marrow_Bank_Organization)organization, enterprise, business, network);

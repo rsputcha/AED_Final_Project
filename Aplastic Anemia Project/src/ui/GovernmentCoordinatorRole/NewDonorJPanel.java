@@ -8,22 +8,26 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.People.DonorRequest;
 import java.awt.Color;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+//import java.lang.System.Logger;
+//import java.lang.System.Logger.Level;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.SwingUtilities.getWindowAncestor;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -140,8 +144,28 @@ public class NewDonorJPanel extends javax.swing.JPanel {
         btnNoQ4.setEnabled(false);
         addPhotoButton.setEnabled(false);
     
-    
     }
+    
+    public ImageIcon ResizeImage(String ImagePath)
+    {
+        ImageIcon MyImage = new ImageIcon(ImagePath);
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(lblProfilePicture.getWidth(), lblProfilePicture.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }
+    
+    private ImageIcon setPicture(String carImageLocation, JLabel carImage){
+
+        ImageIcon imageCar;
+        imageCar = new ImageIcon(carImageLocation);
+        Image picCar = imageCar.getImage();
+        Image resizedImage = picCar.getScaledInstance(carImage.getWidth(), carImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon selectedCarPicture = new ImageIcon(resizedImage);
+        
+        return selectedCarPicture;  
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,6 +223,7 @@ public class NewDonorJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        dobDateField = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -456,6 +481,31 @@ public class NewDonorJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel3.setText("Name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+
+        dobDateField.setBackground(new java.awt.Color(255, 255, 255));
+        dobDateField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dobDateField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dobDateFieldFocusLost(evt);
+            }
+        });
+        dobDateField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dobDateFieldMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dobDateFieldMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                dobDateFieldagePop(evt);
+            }
+        });
+        dobDateField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dobDateFielduDobKeyTyped(evt);
+            }
+        });
+        add(dobDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -890,6 +940,7 @@ public class NewDonorJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnYesQ4;
     private javax.swing.JTextField cityText;
     private javax.swing.JTextField contactText;
+    private com.toedter.calendar.JDateChooser dobDateField;
     private javax.swing.JTextField emailText;
     private javax.swing.JComboBox genderJComboBox;
     private javax.swing.JTextField hlaTypesTextField;

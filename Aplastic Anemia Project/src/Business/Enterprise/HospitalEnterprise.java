@@ -17,7 +17,7 @@ public class HospitalEnterprise extends Enterprise {
         super(name,EnterpriseType.Hospital);
     }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Business.Role.Role> getSupportedRole() {
         return null;
     }
     

@@ -17,7 +17,7 @@ public class LegalEnterprise extends Enterprise {
         super(name,EnterpriseType.Legal);
     }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Business.Role.Role> getSupportedRole() {
         return null;
     }
     
